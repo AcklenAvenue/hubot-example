@@ -1,3 +1,11 @@
+#Hubot+Typescript
+
+###Why? 
+Because TypeScript is the next big thing. Also because hubot scripts are powerful and fun. Why NOT is the better question?
+
+###Hubot is written in coffeescript... what class of witchcraft is at work here??
+Yes, Hubot is written in coffeescript. And, normally, hubot scripts are also written in coffeescript. BUT, you can also include normal javascript files (*.js) at hubot scripts. TypeScript compiles down to javascript, so there's no reason why we can't write hubot scripts in TypeScript! 
+
 #How to use this repo:
 
 ##Getting started:
@@ -28,3 +36,9 @@
 ###Learn Hubot:
 - Read about how hubot works at https://hubot.github.com/
 - Look at examples at https://github.com/hubot-scripts
+
+###Create a hubot script:
+- Create a new file in `/scripts` with extension `.ts`
+- Use the `helloWorld.ts` script as a guide
+- To compile the `.ts` files to javascript, run `grunt` from the command line
+- To compile and run hubot in one command, use `run.bat`
