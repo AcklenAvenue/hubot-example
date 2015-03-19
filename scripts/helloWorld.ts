@@ -1,3 +1,4 @@
+/// <reference path="../typings/node/node.d.ts" />
 // Description:
 //   Say Hi to Hubot.
 //
@@ -14,12 +15,7 @@
 // Author:
 //   Byron Sommardahl
 
-interface IRobot {
-	respond(regexp: string,  )
-}
-class HelloWorld(private robot:IRobot){
-
-	constructor(){
+function HelloWorld(robot:any){
 		robot.respond(/hello/, (msg) => {
 			msg.reply("hello!")
 		})
@@ -28,6 +24,4 @@ class HelloWorld(private robot:IRobot){
 			msg.send("wait... are you from Texas too?")
 		})
 	}
-}
-
-module.exports = new HelloWorld()
+module.exports = HelloWorld;

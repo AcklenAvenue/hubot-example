@@ -13,7 +13,11 @@ module.exports = function (grunt) {
 
     ts: {
       default : {
-        src: ['scripts/**/*.ts', '!node_modules/**/*.ts']
+        src: ['scripts/**/*.ts', '!node_modules/**/*.ts'],
+        options: {
+          module: 'commonjs',
+          comments: true
+        }        
       }
     }
 
