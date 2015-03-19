@@ -6,8 +6,6 @@ Because TypeScript is the next big thing. Also because hubot scripts are powerfu
 ###Hubot is written in coffeescript... what class of witchcraft is at work here??
 Yes, Hubot is written in coffeescript. And, normally, hubot scripts are also written in coffeescript. BUT, you can also include normal javascript files (*.js) at hubot scripts. TypeScript compiles down to javascript, so there's no reason why we can't write hubot scripts in TypeScript! 
 
-#How to use this repo:
-
 ##Getting started:
 
 ###You should have a few things installed globally on your dev machine.
