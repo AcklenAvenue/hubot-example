@@ -1,2 +1,2 @@
 grunt
-bin/hubot
+sh bin/hubot
