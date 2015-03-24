@@ -2,24 +2,16 @@
 /// <reference path="../../typings/chai/chai.d.ts" />
 /// <reference path="../../typings/node/node.d.ts"/>
 /// <reference path="../helpers/messageSender.ts"/>
+/// <reference path="./fakes/fakeResponse.ts"/>
 var _this = this;
-var fakeResponse = (function () {
-    function fakeResponse() {
-        var _this = this;
-        this.messageSent = "none";
-        this.send = function (msg) {
-            _this.messageSent = msg;
-        };
-    }
-    return fakeResponse;
-})();
 var chai = require('chai');
 var expect = chai.expect;
 var s = require('../helpers/MessageSender');
+var f = require('./fakes/FakeResponse');
 describe("The Message Sender", function () {
     beforeEach(function () {
         _this.messageSender = new s.MessageSender();
-        _this.response = new fakeResponse();
+        _this.response = new f.FakeResponse();
     });
     it("should respond with a message", function () {
         _this.messageSender.send(_this.response, "test");

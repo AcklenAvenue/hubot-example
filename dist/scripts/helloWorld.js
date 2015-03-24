@@ -15,4 +15,5 @@ function HelloWorld(robot) {
         msg.send('Howdy!');
     });
 }
+exports.HelloWorld = HelloWorld;
 module.exports = HelloWorld;
