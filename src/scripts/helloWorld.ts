@@ -14,7 +14,11 @@
 function HelloWorld(robot: any) {
 
 	robot.respond(/hello/i, (msg: any) => {
-		msg.send('Howdy!')	
+		msg.reply('Howdy!')	
+	})
+
+	robot.hear(/howdy/i, (msg: any) => {
+		msg.send('Hola!')
 	})
 }
 

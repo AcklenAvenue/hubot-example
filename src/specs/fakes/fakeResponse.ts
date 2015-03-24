@@ -1,7 +1,12 @@
 export class FakeResponse{
-  messageSent: string = "none";
+  	messageSent: string = "none";
+	messageReplied: string = "none";
 
-  send = (msg) => {
-    this.messageSent = msg
-  };      
+	reply = (msg) => {
+		this.messageReplied = msg;
+	}
+
+	send = (msg) => {
+		this.messageSent = msg
+	};      
 }

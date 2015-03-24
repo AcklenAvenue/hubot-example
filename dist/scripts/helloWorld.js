@@ -12,7 +12,10 @@
 //   Byron Sommardahl <byron@acklenavenue.com>
 function HelloWorld(robot) {
     robot.respond(/hello/i, function (msg) {
-        msg.send('Howdy!');
+        msg.reply('Howdy!');
+    });
+    robot.hear(/howdy/i, function (msg) {
+        msg.send('Hola!');
     });
 }
 module.exports = HelloWorld;

@@ -1,5 +1,12 @@
 export class FakeRobot {
 	
+	hear(exp: string, msg: any){
+		var response = this.testResponses[exp];
+		if(response){
+			msg(response);
+		}
+	}
+
 	respond(exp: string, msg: any){
 		var response = this.testResponses[exp];
 		if(response){
@@ -9,7 +16,7 @@ export class FakeRobot {
 
 	private testResponses = [];
 
-	setup(exp: string, response: any){
+	overhears(exp: string, response: any){
 		this.testResponses[exp] = response;
 	}
 }
