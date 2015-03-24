@@ -22,7 +22,7 @@ gulp.task('build', ['clean'], function(){
 
 gulp.task('clean', function () {
 	console.log("Giving the build script a clean slate.")	
-	return gulp.src('dist', {read: false})
+	return gulp.src(['dist', 'scripts'], {read: false})
         .pipe(clean());
 });
 

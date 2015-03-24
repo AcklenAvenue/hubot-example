@@ -11,12 +11,11 @@
 // Author:
 //   Byron Sommardahl <byron@acklenavenue.com>
 
-export function HelloWorld(robot: any) {
+function HelloWorld(robot: any) {
 
 	robot.respond(/hello/i, (msg: any) => {
 		msg.send('Howdy!')	
 	})
 }
 
-
-module.exports = HelloWorld
+export = HelloWorld;
