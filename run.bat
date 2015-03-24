@@ -1,3 +1,3 @@
 @echo off
-grunt
+gulp
 bin/hubot

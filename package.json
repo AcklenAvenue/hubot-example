@@ -5,17 +5,23 @@
   "author": "Byron Sommardahl <byron@acklenavenue.com>",
   "description": "A simple helpful robot for your Company",
   "dependencies": {
-    "grunt": "^0.4.5",
-    "grunt-ts": "^3.0.0",
     "hubot": "^2.11.4",
-    "load-grunt-tasks": "^3.1.0",
-    "time-grunt": "^1.0.0",
-    "typescript": "^1.4.1"
+    "request-promise": "^0.4.0",
+    "underscore": "^1.8.2"
   },
   "engines": {
     "node": "0.10.x"
   },
   "devDependencies": {
-    "grunt-shell": "^1.1.2"
+    "chai": "^2.1.2",
+    "gulp": "^3.8.11",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.5.2",
+    "gulp-debug": "^2.0.1",
+    "gulp-load-plugins": "^0.9.0",
+    "gulp-mocha": "^2.0.0",
+    "gulp-shell": "^0.4.0",
+    "gulp-typescript": "^2.5.0",
+    "typescript": "^1.4.1"
   }
 }
