@@ -28,8 +28,8 @@ class ChuckNorris {
 	}
 
 	registerListener = (robot: any) => {
-		robot.respond(/(chuck norris)?(.*)/i, (msg: any) => {
-			var name = msg.match[2]
+		robot.respond(/chuck norris?(.*)/i, (msg: any) => {
+			var name = msg.match[1]
 			this.impersonator.impersonate(name).then((joke)=>{
 				this.messageSender.send(msg, joke);
 			})

@@ -43,4 +43,23 @@ describe("The Chuck Norris Hubot Script (integration)", () => {
     
   });
 
+  it("should not respond at all if not called specifically", (done: MochaDone) => {    
+    var response = new FakeResponse();
+    this.robot.overhears("hello", response);
+    ChuckNorris(this.robot);
+
+    setTimeout(()=>{
+      
+      response.waitForMessageToBeSent().then(()=>{
+        done(new Error("should not have been called"));
+      });
+        
+      done()  
+    }, 1000)
+
+    
+
+  });
+
+  
 });

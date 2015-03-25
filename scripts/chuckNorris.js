@@ -25,8 +25,8 @@ var ChuckNorris = (function () {
         this.messageSender = messageSender;
         this.impersonator = impersonator;
         this.registerListener = function (robot) {
-            robot.respond(/(chuck norris)?(.*)/i, function (msg) {
-                var name = msg.match[2];
+            robot.respond(/chuck norris?(.*)/i, function (msg) {
+                var name = msg.match[1];
                 _this.impersonator.impersonate(name).then(function (joke) {
                     _this.messageSender.send(msg, joke);
                 });
