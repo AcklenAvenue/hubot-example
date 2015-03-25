@@ -1,21 +1,31 @@
+var _ = require("underscore");
 var FakeRobot = (function () {
     function FakeRobot() {
         this.testResponses = [];
     }
     FakeRobot.prototype.hear = function (exp, msg) {
-        var response = this.testResponses[exp];
-        if (response) {
-            msg(response);
+        var matching = _.find(this.testResponses, function (r) {
+            return exp.test(r.text);
+        });
+        if (matching) {
+            msg(matching.response);
         }
     };
     FakeRobot.prototype.respond = function (exp, msg) {
-        var response = this.testResponses[exp];
-        if (response) {
-            msg(response);
+        var matching = _.find(this.testResponses, function (r) {
+            return exp.test(r.text);
+        });
+        if (matching) {
+            console.log("exp: " + exp);
+            console.log("matching: " + matching.text);
+            var matches = matching.text.match(exp);
+            //console.log(matches)
+            matching.response.registerMatches(matches);
+            msg(matching.response);
         }
     };
-    FakeRobot.prototype.overhears = function (exp, response) {
-        this.testResponses[exp] = response;
+    FakeRobot.prototype.overhears = function (text, response) {
+        this.testResponses.push({ text: text, response: response });
     };
     return FakeRobot;
 })();

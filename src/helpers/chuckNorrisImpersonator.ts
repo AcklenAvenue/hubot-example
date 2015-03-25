@@ -9,16 +9,18 @@ export class ChuckNorrisImpersonator implements IImpersonateChuckNorris{
   }
   
   impersonate(name: string) :any {
-    
+
     var urlToGet = "http://api.icndb.com/jokes/random"
 
-    if(name != null)
+    if(name)
       urlToGet = urlToGet + "?firstName=" + name + "&lastName="
 
       var promise = this.getClient(urlToGet);
       
       return promise
-        .then((message_from_chuck)=> {
+        .then((body)=> {
+          var message_from_chuck = JSON.parse(body)
+          
           var joke = message_from_chuck.value.joke;
           
           if(joke.length == 0){

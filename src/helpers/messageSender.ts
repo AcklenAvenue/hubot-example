@@ -4,7 +4,7 @@ export interface ISendMessages{
 
 export class MessageSender implements ISendMessages{
 	send(response: any, newMessage: string) {
-		if(newMessage){
+		if(newMessage){			
 			response.send(newMessage)
 		}
 	}

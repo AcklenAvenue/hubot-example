@@ -1,22 +1,35 @@
-export class FakeRobot {
-	
-	hear(exp: string, msg: any){
-		var response = this.testResponses[exp];
-		if(response){
-			msg(response);
-		}
-	}
+var _ = require("underscore");
 
-	respond(exp: string, msg: any){
-		var response = this.testResponses[exp];
-		if(response){
-			msg(response);
-		}
-	}
+export class FakeRobot {
 
 	private testResponses = [];
+	
+	hear(exp: RegExp, msg: any){
+		var matching = _.find(this.testResponses, (r)=>{
+			return exp.test(r.text);
+			});
 
-	overhears(exp: string, response: any){
-		this.testResponses[exp] = response;
+		if(matching){
+			msg(matching.response);
+		}
+	}
+
+	respond(exp: RegExp, msg: any){
+		var matching = _.find(this.testResponses, (r)=>{
+			return exp.test(r.text);
+			});
+
+		if(matching){
+			console.log("exp: "+exp);
+			console.log("matching: "+matching.text);
+			var matches = matching.text.match(exp);
+			//console.log(matches)
+			matching.response.registerMatches(matches);
+			msg(matching.response);
+		}
+	}
+
+	overhears(text: string, response: any){
+		this.testResponses.push({text: text, response: response});
 	}
 }
