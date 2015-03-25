@@ -19,13 +19,12 @@
 // Ported by:
 //   Byron Sommardahl <byron@acklenavenue.com>
 
-import sm = require("../helpers/messageSender");
-import i = require("../helpers/chuckNorrisImpersonator");
+import ms = require("../helpers/messageSender");
+import imp = require("../helpers/chuckNorrisImpersonator");
 
 class ChuckNorris {
 	
-	constructor(private messageSender: sm.ISendMessages, private impersonator: i.IImpersonateChuckNorris){
-
+	constructor(private messageSender: ms.ISendMessages, private impersonator: i.IImpersonateChuckNorris){
 	}
 
 	registerListener = (robot: any) => {
@@ -38,8 +37,10 @@ class ChuckNorris {
 	}
 }
 
-var rp = require("request-promise")
-var imp = new i.ChuckNorrisImpersonator(rp)
-var ms = new sm.MessageSender()
-var fn = new ChuckNorris(ms, imp).registerListener
+var httpClient = require("request-promise")
+
+var MessageSender = ms.MessageSender;
+var ChuckNorrisImpersonator = imp.ChuckNorrisImpersonator;
+
+var fn = new ChuckNorris(new MessageSender(), new ChuckNorrisImpersonator(httpClient)).registerListener
 export = fn

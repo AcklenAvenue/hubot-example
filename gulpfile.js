@@ -6,6 +6,8 @@ var debug = require('gulp-debug');
 var istanbul = require('gulp-istanbul');
 var buildFolder = 'build';
 
+function onError(error) { process.exit(1);}
+
 gulp.task('default', ['build', 'specs', 'deploy']);
 
 gulp.task('build', ['clean'], function(){
@@ -15,10 +17,11 @@ gulp.task('build', ['clean'], function(){
 		.pipe(tsc({
 		            module: 'commonjs',
 		            declarationFiles: true,
-		            emitError: false,
+		            emitError: true,
 		            comments: true
 		            }))		       
-		.pipe(gulp.dest(buildFolder));
+		.on('error', onError)
+		.pipe(gulp.dest(buildFolder));		
 });
 
 gulp.task('clean', function () {
