@@ -3,13 +3,15 @@ export interface ISendMessages{
 }
 
 export class MessageSender implements ISendMessages{
-	constructor(){
-
-	}
-
 	send(response: any, newMessage: string) {
 		if(newMessage){
 			response.send(newMessage)
+		}
+	}
+
+	reply(response: any, newMessage: string) {
+		if(newMessage){
+			response.reply(newMessage)
 		}
 	}
 }

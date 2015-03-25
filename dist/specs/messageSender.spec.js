@@ -13,12 +13,20 @@ describe("The Message Sender", function () {
         _this.messageSender = new s.MessageSender();
         _this.response = new f.FakeResponse();
     });
-    it("should respond with a message", function () {
+    it("should send with a message", function () {
         _this.messageSender.send(_this.response, "test");
         expect(_this.response.messageSent).to.equal("test");
     });
-    it("should not allow empty input", function () {
+    it("should not send with empty input", function () {
         _this.messageSender.send(_this.response);
         expect(_this.response.messageSent).to.equal("none");
+    });
+    it("should respond with a message", function () {
+        _this.messageSender.reply(_this.response, "test");
+        expect(_this.response.messageReplied).to.equal("test");
+    });
+    it("should not respond with empty input", function () {
+        _this.messageSender.reply(_this.response);
+        expect(_this.response.messageReplied).to.equal("none");
     });
 });

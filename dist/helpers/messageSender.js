@@ -6,6 +6,11 @@ var MessageSender = (function () {
             response.send(newMessage);
         }
     };
+    MessageSender.prototype.reply = function (response, newMessage) {
+        if (newMessage) {
+            response.reply(newMessage);
+        }
+    };
     return MessageSender;
 })();
 exports.MessageSender = MessageSender;

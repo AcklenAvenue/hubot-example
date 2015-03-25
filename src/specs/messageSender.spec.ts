@@ -16,13 +16,25 @@ describe("The Message Sender", () => {
     this.response = new f.FakeResponse();
   });
     
-  it("should respond with a message", () => {
+  it("should send with a message", () => {
     this.messageSender.send(this.response, "test");
     expect(this.response.messageSent).to.equal("test");        
   });
 
-  it("should not allow empty input", () => {
-    this.messageSender.reply(this.response);
+  it("should not send with empty input", () => {
+    this.messageSender.send(this.response);
     expect(this.response.messageSent).to.equal("none");        
   });
+
+  it("should respond with a message", () => {
+    this.messageSender.reply(this.response, "test");
+    expect(this.response.messageReplied).to.equal("test");        
+  });
+
+  it("should not respond with empty input", () => {
+    this.messageSender.reply(this.response);
+    expect(this.response.messageReplied).to.equal("none");        
+  });
+
+  
 });
