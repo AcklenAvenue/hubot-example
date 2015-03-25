@@ -22,7 +22,7 @@ describe("The Message Sender", () => {
   });
 
   it("should not allow empty input", () => {
-    this.messageSender.send(this.response);
+    this.messageSender.reply(this.response);
     expect(this.response.messageSent).to.equal("none");        
   });
 });
