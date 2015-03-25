@@ -3,7 +3,7 @@
 var gulp = require('gulp');
 var clean = require('gulp-clean');
 var debug = require('gulp-debug');
-var cover = require('gulp-coverage');
+var istanbul = require('gulp-istanbul');
 
 gulp.task('default', ['build', 'specs', 'deploy']);
 
@@ -11,7 +11,6 @@ gulp.task('build', ['clean'], function(){
 	console.log("Compiling TypeScript files from the /src folder and placing new JavaScript files in the /dist folder.")		
 	var tsc  = require('gulp-typescript')	
 	return gulp.src(["typings/**/*.ts", "src/**/*.ts"])		
-		//.pipe(debug()) //debug shows the files included in the src pipe	        
 		.pipe(tsc({
 		            module: 'commonjs',
 		            declarationFiles: true,
@@ -27,28 +26,24 @@ gulp.task('clean', function () {
         .pipe(clean());
 });
 
-gulp.task('specs', ['build'], function(){
+gulp.task('specs', ['build'], function(cb){
 	console.log("Running specs to make sure nothing is broken.")
 	var mocha = require('gulp-mocha');	
-	return gulp.src("dist/**/*.js")
-				//.pipe(debug()) //debug shows the files included in the src pipe
-
-				.pipe(cover.instrument({
-                    pattern: ['**/spec.*'],
-                    debugDirectory: 'debug'
-                }))
-		        .pipe(mocha())
-		        .pipe(cover.gather())
-                .pipe(cover.format())
-                .pipe(gulp.dest('reports'));;	
+	gulp.src(["dist/**/*.js", "!dist/specs/**/*.js"])
+		.pipe(istanbul())
+		.pipe(istanbul.hookRequire())
+		.on('finish', function () {
+	      gulp.src(['dist/specs/**/*.js'])
+	        .pipe(mocha())
+	        .pipe(istanbul.writeReports({reporters: ['text-summary','html'], reportOpts: { dir: "reports"}}))
+	        .on('end', cb);
+	    }); 
 });
 
 gulp.task('deploy', ['build', 'specs'], function(){
 	console.log("Deploying the hubot script files to the /scripts folder so that hubot will include them.")
 	gulp.src('dist/scripts/*.js')
-		//.pipe(debug()) //debug shows the files included in the src pipe
-    	.pipe(gulp.dest('scripts'));
+		.pipe(gulp.dest('scripts'));
 	gulp.src('dist/helpers/*.js')
-		//.pipe(debug()) //debug shows the files included in the src pipe
-    	.pipe(gulp.dest('helpers'));
+		.pipe(gulp.dest('helpers'));
 });
