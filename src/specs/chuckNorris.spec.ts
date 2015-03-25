@@ -17,7 +17,7 @@ var FakeRobot = rob.FakeRobot;
 import res = require('./fakes/FakeResponse');
 var FakeResponse = res.FakeResponse;
 
-describe("The Chuck Norris Hubot Script", () => {
+describe("The Chuck Norris Hubot Script (integration)", () => {
   
   beforeEach(() => {
     this.robot = new FakeRobot();        
@@ -39,7 +39,7 @@ describe("The Chuck Norris Hubot Script", () => {
     ChuckNorris(this.robot);
     
     expect(response.waitForMessageToBeSent())
-      .to.eventually.contain("Chuck Norris").notify(done);
+      .to.eventually.contain("Norris").notify(done);
     
   });
 

@@ -18,9 +18,8 @@ export class ChuckNorrisImpersonator implements IImpersonateChuckNorris{
       var promise = this.getClient(urlToGet);
       
       return promise
-        .then((body)=> {
+        .then((body)=> {   
           var message_from_chuck = JSON.parse(body)
-          
           var joke = message_from_chuck.value.joke;
           
           if(joke.length == 0){

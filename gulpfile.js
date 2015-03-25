@@ -3,6 +3,7 @@
 var gulp = require('gulp');
 var clean = require('gulp-clean');
 var debug = require('gulp-debug');
+var cover = require('gulp-coverage');
 
 gulp.task('default', ['build', 'specs', 'deploy']);
 
@@ -31,7 +32,15 @@ gulp.task('specs', ['build'], function(){
 	var mocha = require('gulp-mocha');	
 	return gulp.src("dist/**/*.js")
 				//.pipe(debug()) //debug shows the files included in the src pipe
-		        .pipe(mocha({reporter: 'nyan'}));	
+
+				.pipe(cover.instrument({
+                    pattern: ['**/spec.*'],
+                    debugDirectory: 'debug'
+                }))
+		        .pipe(mocha())
+		        .pipe(cover.gather())
+                .pipe(cover.format())
+                .pipe(gulp.dest('reports'));;	
 });
 
 gulp.task('deploy', ['build', 'specs'], function(){

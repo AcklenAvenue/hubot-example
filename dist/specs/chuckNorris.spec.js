@@ -15,7 +15,7 @@ var rob = require('./fakes/FakeRobot');
 var FakeRobot = rob.FakeRobot;
 var res = require('./fakes/FakeResponse');
 var FakeResponse = res.FakeResponse;
-describe("The Chuck Norris Hubot Script", function () {
+describe("The Chuck Norris Hubot Script (integration)", function () {
     beforeEach(function () {
         _this.robot = new FakeRobot();
     });
@@ -29,6 +29,6 @@ describe("The Chuck Norris Hubot Script", function () {
         var response = new FakeResponse();
         _this.robot.overhears("chuck norris", response);
         ChuckNorris(_this.robot);
-        expect(response.waitForMessageToBeSent()).to.eventually.contain("Chuck Norris").notify(done);
+        expect(response.waitForMessageToBeSent()).to.eventually.contain("Norris").notify(done);
     });
 });

@@ -20,10 +20,7 @@ export class FakeRobot {
 			});
 
 		if(matching){
-			console.log("exp: "+exp);
-			console.log("matching: "+matching.text);
 			var matches = matching.text.match(exp);
-			//console.log(matches)
 			matching.response.registerMatches(matches);
 			msg(matching.response);
 		}
