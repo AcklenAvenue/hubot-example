@@ -39,4 +39,7 @@ gulp.task('deploy', ['build', 'specs'], function(){
 	gulp.src('dist/scripts/*.js')
 		//.pipe(debug()) //debug shows the files included in the src pipe
     	.pipe(gulp.dest('scripts'));
+	gulp.src('dist/helpers/*.js')
+		//.pipe(debug()) //debug shows the files included in the src pipe
+    	.pipe(gulp.dest('helpers'));
 });

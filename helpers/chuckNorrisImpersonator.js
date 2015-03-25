@@ -4,7 +4,7 @@ var ChuckNorrisImpersonator = (function () {
     }
     ChuckNorrisImpersonator.prototype.impersonate = function (name) {
         var urlToGet = "http://api.icndb.com/jokes/random";
-        if (name != null)
+        if (name)
             urlToGet = urlToGet + "?firstName=" + name + "&lastName=";
         var promise = this.getClient(urlToGet);
         return promise.then(function (body) {
