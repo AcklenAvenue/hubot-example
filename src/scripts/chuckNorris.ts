@@ -24,7 +24,7 @@ import imp = require("../helpers/chuckNorrisImpersonator");
 
 class ChuckNorris {
 	
-	constructor(private messageSender: ms.ISendMessages, private impersonator: i.IImpersonateChuckNorris){
+	constructor(private messageSender: ms.ISendMessages, private impersonator: imp.IImpersonateChuckNorris){
 	}
 
 	registerListener = (robot: any) => {
