@@ -5,6 +5,7 @@
   "author": "Byron Sommardahl <byron@acklenavenue.com>",
   "description": "A simple helpful robot for your Company",
   "dependencies": {
+    "es6-promise": "^2.0.1",
     "hubot": "^2.11.4",
     "request-promise": "^0.4.0",
     "underscore": "^1.8.2"

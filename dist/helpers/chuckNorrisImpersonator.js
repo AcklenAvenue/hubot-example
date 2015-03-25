@@ -1,18 +1,19 @@
 var ChuckNorrisImpersonator = (function () {
-    function ChuckNorrisImpersonator(httpClient) {
-        this.httpClient = httpClient;
+    function ChuckNorrisImpersonator(getClient) {
+        this.getClient = getClient;
     }
     ChuckNorrisImpersonator.prototype.impersonate = function (name) {
         var urlToGet = "http://api.icndb.com/jokes/random";
         if (name != null)
             urlToGet = urlToGet + "?firstName=" + name + "&lastName=";
-        return this.httpClient(urlToGet).then(function (body) {
-            var message_from_chuck = JSON.parse(body);
-            if (message_from_chuck.length == 0) {
+        var promise = this.getClient(urlToGet);
+        return promise.then(function (message_from_chuck) {
+            var joke = message_from_chuck.value.joke;
+            if (joke.length == 0) {
                 return "Achievement unlocked: Chuck Norris is quiet!";
             }
             else {
-                return message_from_chuck.value.joke.replace(/\s\s/g, " ");
+                return joke.replace(/\s\s/g, " ");
             }
         }).catch(function (err) {
             return "Chuck Norris says: " + err;
@@ -20,3 +21,4 @@ var ChuckNorrisImpersonator = (function () {
     };
     return ChuckNorrisImpersonator;
 })();
+exports.ChuckNorrisImpersonator = ChuckNorrisImpersonator;
