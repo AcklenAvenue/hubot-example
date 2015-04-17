@@ -26,7 +26,7 @@ gulp.task('build', ['clean'], function(){
 
 gulp.task('clean', function () {
 	console.log("Giving the build script a clean slate.")	
-	return gulp.src([buildFolder, 'scripts'], {read: false})
+	return gulp.src([buildFolder], {read: false})
         .pipe(clean());
 });
 
