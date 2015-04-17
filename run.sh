@@ -1,0 +1,2 @@
+grunt
+sh bin/hubot
