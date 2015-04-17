@@ -24,6 +24,7 @@ Yes, Hubot is written in coffeescript. And, normally, hubot scripts are also wri
 
 ###Set up your dev environment:
 - Sublime Plugin - https://github.com/raph-amiard/sublime-typescript
+- Brackets Plugin - https://github.com/fdecampredon/brackets-typescript
 - Visual Studio Extension - https://visualstudiogallery.msdn.microsoft.com/2d42d8dc-e085-45eb-a30b-3f7d50d55304
 
 ##Get moving:
