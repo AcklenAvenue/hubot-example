@@ -19,6 +19,7 @@ Yes, Hubot is written in coffeescript. And, normally, hubot scripts are also wri
 
 ###Test the hubot
 - `run.bat` will run grunt to compile the ts file(s) and then runs `bin/hubot`
+- `sh run.sh` if using OSX or Linux.
 - Try typing `howdy` at the prompt... you should get a response.
 
 ###Set up your dev environment:
@@ -39,4 +40,4 @@ Yes, Hubot is written in coffeescript. And, normally, hubot scripts are also wri
 - Create a new file in `/scripts` with extension `.ts`
 - Use the `helloWorld.ts` script as a guide
 - To compile the `.ts` files to javascript, run `grunt` from the command line
-- To compile and run hubot in one command, use `run.bat`
+- To compile and run hubot in one command, use `run.bat` in Windows or `sh run.sh` in OSX or Linux. 

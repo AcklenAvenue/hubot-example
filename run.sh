@@ -1,0 +1,2 @@
+gulp
+sh bin/hubot
