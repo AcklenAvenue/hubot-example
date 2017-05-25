@@ -1,0 +1,36 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.7.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:ms:20170412':
+    - hubot > express > connect > morgan > debug > ms:
+        patched: '2017-05-25T05:27:03.151Z'
+    - hubot > express > debug > ms:
+        patched: '2017-05-25T05:27:03.151Z'
+    - hubot > express > connect > body-parser > debug > ms:
+        patched: '2017-05-25T05:27:03.151Z'
+    - hubot > express > connect > compression > debug > ms:
+        patched: '2017-05-25T05:27:03.151Z'
+    - hubot > express > connect > connect-timeout > debug > ms:
+        patched: '2017-05-25T05:27:03.151Z'
+    - hubot > express > connect > debug > ms:
+        patched: '2017-05-25T05:27:03.151Z'
+    - hubot > express > connect > express-session > debug > ms:
+        patched: '2017-05-25T05:27:03.151Z'
+    - hubot > express > send > debug > ms:
+        patched: '2017-05-25T05:27:03.151Z'
+    - hubot > express > connect > serve-index > debug > ms:
+        patched: '2017-05-25T05:27:03.151Z'
+    - hubot > express > connect > finalhandler > debug > ms:
+        patched: '2017-05-25T05:27:03.151Z'
+    - hubot > express > connect > serve-static > send > debug > ms:
+        patched: '2017-05-25T05:27:03.151Z'
+    - hubot > express > send > ms:
+        patched: '2017-05-25T05:27:03.151Z'
+    - hubot > express > connect > connect-timeout > ms:
+        patched: '2017-05-25T05:27:03.151Z'
+    - hubot > express > connect > serve-static > send > ms:
+        patched: '2017-05-25T05:27:03.151Z'
+    - hubot > express > connect > serve-favicon > ms:
+        patched: '2017-05-25T05:27:03.151Z'
